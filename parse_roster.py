@@ -5,8 +5,6 @@ import datetime
 import pytz
 import dateutil.parser
 
-from lab6_roster.student import Student
-
 
 def get_url_last_modified_date(url_str):
     response = None
@@ -76,14 +74,6 @@ print "Done"
 
 
 def get_student_list():
-    s_list = []
 
-    print "Reading roster ..."
-    f = open('roster.txt', 'r')
-
-    for line in f:
-        stu = Student(line)
-        stu.grade()
-        s_list.append(stu)
 
     return s_list

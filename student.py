@@ -1,7 +1,7 @@
 __author__ = 'sijialiu'
-import re
+
 import urllib2
-import dateutil
+import dateutil.parser
 import datetime
 import pytz
 import re
