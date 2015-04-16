@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.4-dist/css/bootstrap.css" />
+</head>
+<body>
+<div class="container .col-md-8">
+	<h1> {{ title }} </h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Full Name</th>
+    <th>UBIT Name</th>		
+    <th>submit_time</th>
+  </tr>
+
+    {% for student in student_list %}
+        {% if student.is_late %}
+        <tr class="success">
+        {% elif not student.is_submitted %}
+        <tr class="danger">
+        {% endif %}        
+        
+        
+	    {% if student.is_submitted_alt %}
+                <td><a href="{{ student.lab6_url }}"> {{ student.full_name }}</td>
+                <td><a href="{{ student.lab6_url_alt }}"> {{ student.ubit_name }}</a></td>
+                <td>{{ student.last_modified_str }}</td>
+        {% elif student.is_submitted %}
+            <td><a href="{{ student.lab6_url }}"> {{ student.full_name }}</a></td>
+            <td>{{ student.ubit_name }}</td>
+            <td>{{ student.last_modified_str }}</td>
+	    {% else %}       
+	        <td><a href="{{ student.lab6_url }}"> {{ student.full_name }}</a></td>
+            <td><a href="{{ student.lab6_url_alt }}"> {{ student.ubit_name }}</a></td>
+            <td> NA </td>
+        {% endif %}
+
+	    </tr>
+    {% endfor %}
+    </tr>
+    
+</table>
+</div>
+
+</body>
+</html>
