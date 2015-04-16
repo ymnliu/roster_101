@@ -91,7 +91,7 @@ class Student(object):
         print self.status
 
     @staticmethod
-    def grade_from_html(self, url_str):
+    def grade_from_html(url_str):
         status = ""
         response = urllib2.urlopen(url_str)
         the_page = response.read()
