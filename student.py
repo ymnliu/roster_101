@@ -51,7 +51,6 @@ class Student(object):
         self.lab6_url = "http://www.acsu.buffalo.edu/~%s/cse-101" % self.ubit_name
         self.lab6_url_alt = "http://www.acsu.buffalo.edu/~%s" % self.ubit_name
 
-
     def get_ubit_name(self):
         return re.compile("\((.*)\)").search(self.line).group(1)
 
@@ -91,6 +90,7 @@ class Student(object):
 
         print self.status
 
+    @staticmethod
     def grade_from_html(self, url_str):
         status = ""
         response = urllib2.urlopen(url_str)
